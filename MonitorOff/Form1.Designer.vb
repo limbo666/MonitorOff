@@ -39,6 +39,8 @@ Partial Class Form1
         Me.NumMins = New System.Windows.Forms.NumericUpDown()
         Me.NumHours = New System.Windows.Forms.NumericUpDown()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TmrRepeat = New System.Windows.Forms.Timer(Me.components)
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -119,18 +121,20 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label3.Location = New System.Drawing.Point(141, 35)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(12, 20)
+        Me.Label3.Size = New System.Drawing.Size(13, 20)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = ":"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label2.Location = New System.Drawing.Point(83, 35)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(12, 20)
+        Me.Label2.Size = New System.Drawing.Size(13, 20)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = ":"
         '
@@ -163,18 +167,33 @@ Partial Class Form1
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(282, 95)
+        Me.CheckBox1.Location = New System.Drawing.Point(133, 91)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(76, 24)
         Me.CheckBox1.TabIndex = 10
         Me.CheckBox1.Text = "Enable"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'TmrRepeat
+        '
+        Me.TmrRepeat.Interval = 1000
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(133, 121)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(176, 24)
+        Me.CheckBox2.TabIndex = 11
+        Me.CheckBox2.Text = "Repeat after one hour"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(379, 131)
+        Me.ClientSize = New System.Drawing.Size(379, 158)
+        Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
@@ -211,4 +230,6 @@ Partial Class Form1
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ShowToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TmrRepeat As Timer
+    Friend WithEvents CheckBox2 As CheckBox
 End Class

@@ -4,8 +4,12 @@
 Imports System.Runtime.InteropServices
 
 Public Class Form1
-    ' Taken from  https://stackoverflow.com/questions/6221787/how-to-turn-off-a-monitor-using-vb-net-code
     Dim TurnOffTime As String
+    Dim RepeatTime As Integer = 3600
+    Dim CloseOnTray = True
+
+
+    ' Taken from  https://stackoverflow.com/questions/6221787/how-to-turn-off-a-monitor-using-vb-net-code
     Public WM_SYSCOMMAND As Integer = &H112
     Public SC_MONITORPOWER As Integer = &HF170
     <DllImport("user32.dll", SetLastError:=True)>
@@ -19,11 +23,11 @@ Public Class Form1
         Dim timeNow As String = Now.ToString("HH:mm")
         Dim timeOff As String = NumHours.Value.ToString & ":" & NumMins.Value.ToString
 
-        If timeNow = timeOff Then
+        '    If timeNow = timeOff Then
 
-            '    Button1_Click(Nothing, Nothing)
-            TurnOffScreen()
-        End If
+        '    Button1_Click(Nothing, Nothing)
+        TurnOffScreen()
+        '  End If
 
     End Sub
 
@@ -41,6 +45,9 @@ Public Class Form1
 
             '    Button1_Click(Nothing, Nothing)
             TurnOffScreen()
+            If CheckBox2.Checked = True Then
+                TmrRepeat.Enabled = True
+            End If
         End If
 
         'If timeNow = "10:12:30" Then
@@ -59,7 +66,7 @@ Public Class Form1
         NumMins.Value = GetSetting("MonitorOff", "Settings", "Min", "30")
         NumSecs.Value = GetSetting("MonitorOff", "Settings", "Sec", "00")
         CheckBox1.Checked = GetSetting("MonitorOff", "Settings", "Enabled", False)
-
+        CheckBox2.Checked = GetSetting("MonitorOff", "Settings", "Repeat", False)
         Me.Top = GetSetting("MonitorOff", "Settings", "Top", 100)
         Me.Left = GetSetting("MonitorOff", "Settings", "Left", 500)
 
@@ -81,7 +88,11 @@ Public Class Form1
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         Timer1.Enabled = CheckBox1.Checked
         UpdateNotifyIconText()
-
+        If CheckBox1.Checked = True Then
+            CheckBox2.Enabled = True
+        Else
+            CheckBox2.Enabled = False
+        End If
     End Sub
     Sub GenerateTime()
         TurnOffTime = NumHours.Value.ToString.PadLeft(2, "0") & ":" & NumMins.Value.ToString.PadLeft(2, "0") & ":" & NumSecs.Value.ToString.PadLeft(2, "0")
@@ -103,15 +114,27 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        SaveSetting("MonitorOff", "Settings", "Hour", NumHours.Value)
-        SaveSetting("MonitorOff", "Settings", "Min", NumMins.Value)
-        SaveSetting("MonitorOff", "Settings", "Sec", NumSecs.Value)
-        SaveSetting("MonitorOff", "Settings", "Enabled", CheckBox1.Checked)
+        If CloseOnTray = True Then
+            ' Exit Sub
+            e.Cancel = True
+            Me.ShowInTaskbar = False
+            Me.Hide()
 
-        If Me.Visible = True Then
-            SaveSetting("MonitorOff", "Settings", "Top", Me.Top)
-            SaveSetting("MonitorOff", "Settings", "Left", Me.Left)
+        Else
+            SaveSetting("MonitorOff", "Settings", "Hour", NumHours.Value)
+            SaveSetting("MonitorOff", "Settings", "Min", NumMins.Value)
+            SaveSetting("MonitorOff", "Settings", "Sec", NumSecs.Value)
+            SaveSetting("MonitorOff", "Settings", "Enabled", CheckBox1.Checked)
+            SaveSetting("MonitorOff", "Settings", "Repeat", CheckBox2.Checked)
+
+            If Me.Visible = True Then
+                SaveSetting("MonitorOff", "Settings", "Top", Me.Top)
+                SaveSetting("MonitorOff", "Settings", "Left", Me.Left)
+            End If
         End If
+
+
+
     End Sub
 
     Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
@@ -120,6 +143,7 @@ Public Class Form1
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        CloseOnTray = False
         Me.Close()
     End Sub
 
@@ -132,7 +156,29 @@ Public Class Form1
         FrmAbout.ShowDialog()
     End Sub
 
+    Private Sub TmrRepeat_Tick(sender As Object, e As EventArgs) Handles TmrRepeat.Tick
+        If RepeatTime > 0 Then
+            RepeatTime = RepeatTime - 1
 
+        Else
+
+            RepeatTime = 3600
+            TmrRepeat.Enabled = False
+            TurnOffScreen()
+        End If
+
+    End Sub
+
+    Private Sub Form1_DragOver(sender As Object, e As DragEventArgs) Handles Me.DragOver
+
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked = False Then
+            TmrRepeat.Enabled = False
+            RepeatTime = 3600
+        End If
+    End Sub
 End Class
 
 

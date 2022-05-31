@@ -36,7 +36,7 @@ Partial Class FrmAbout
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(73, 295)
+        Me.Button1.Location = New System.Drawing.Point(67, 308)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(91, 28)
         Me.Button1.TabIndex = 0
@@ -67,9 +67,9 @@ Partial Class FrmAbout
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(67, 252)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 20)
+        Me.Label4.Size = New System.Drawing.Size(58, 20)
         Me.Label4.TabIndex = 10
-        Me.Label4.Text = "2022"
+        Me.Label4.Text = "© 2022"
         '
         'Label2
         '
@@ -106,7 +106,7 @@ Partial Class FrmAbout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(215, 320)
+        Me.ClientSize = New System.Drawing.Size(215, 348)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label2)

@@ -1,0 +1,19 @@
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.vbproj.AssemblyReference.cache
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor_Off.Form1.resources
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor_Off.FrmAbout.resources
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor_Off.Resources.resources
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.vbproj.GenerateResource.cache
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.AssemblyInfoInputs.cache
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.AssemblyInfo.vb
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.vbproj.CoreCompileInputs.cache
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\bin\Debug\net6.0-windows\Monitor Off.exe
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\bin\Debug\net6.0-windows\Monitor Off.deps.json
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\bin\Debug\net6.0-windows\Monitor Off.runtimeconfig.json
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\bin\Debug\net6.0-windows\Monitor Off.dll
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\bin\Debug\net6.0-windows\Monitor Off.pdb
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.dll
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\refint\Monitor Off.dll
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.pdb
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\Monitor Off.genruntimeconfig.cache
+C:\Users\Nikos\Source\Repos\Monitor_Off\MonitorOff\obj\Debug\net6.0-windows\ref\Monitor Off.dll
